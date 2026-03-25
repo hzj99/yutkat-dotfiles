@@ -29,7 +29,7 @@
       # 定义了所有主机的配置属性
       myHosts = {
 
-       # lemp10 主机配置
+       # nixos 主机配置
               "nixos" = {
                 # 系统架构
                 system = "x86_64-linux";
@@ -72,7 +72,7 @@
           # 是否作为完整的 NixOS 系统配置（这里为 false，表示仅使用 Home Manager）
           enableSystem = false;
           # 默认用户名
-          defaultUsername = "kata";
+          defaultUsername = "hzj";
         };
 
         # test 主机配置（用于测试）
