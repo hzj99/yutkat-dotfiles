@@ -10,6 +10,14 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       myHosts = {
+        "nixos" = {
+                system = "x86_64-linux";
+                hostSpecificNix = ./nixos/hosts/nixos/configuration.nix;
+                hostSpecificHomeConfig = ./home-manager/hosts/nixos.nix;
+                enableGui = true;
+                enableSystem = true;
+                defaultUsername = "yutkat";
+              };
         "lemp10" = {
           system = "x86_64-linux";
           hostSpecificNix = ./nixos/hosts/lemp10/configuration.nix;
