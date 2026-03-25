@@ -16,7 +16,7 @@
                 hostSpecificHomeConfig = ./home-manager/hosts/nixos.nix;
                 enableGui = true;
                 enableSystem = true;
-                defaultUsername = "yutkat";
+                defaultUsername = "hzj";
               };
         "lemp10" = {
           system = "x86_64-linux";
