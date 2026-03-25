@@ -28,6 +28,23 @@
       # === 主机配置定义 ===
       # 定义了所有主机的配置属性
       myHosts = {
+
+       # lemp10 主机配置
+              "nixos" = {
+                # 系统架构
+                system = "x86_64-linux";
+                # 主机特定的 NixOS 配置文件
+                hostSpecificNix = ./nixos/hosts/nixos/configuration.nix;
+                # 主机特定的 Home Manager 配置文件
+                hostSpecificHomeConfig = ./home-manager/hosts/nixos.nix;
+                # 是否启用 GUI
+                enableGui = true;
+                # 是否作为完整的 NixOS 系统配置
+                enableSystem = true;
+                # 默认用户名
+                defaultUsername = "hzj";
+              };
+
         # lemp10 主机配置
         "lemp10" = {
           # 系统架构
