@@ -17,4 +17,6 @@
   # hardware.system76.power-daemon.enable = true;
   # services.system76-scheduler.enable = true;
   # services.hardware.bolt.enable = true;
+
+  networking.hostName = "lemp10";
 }
