@@ -18,6 +18,10 @@
       ./hardware-configuration.nix  # 硬件配置文件，通常由 NixOS 安装过程自动生成
     ];
 
+  # 对所有构建任务生效-新增的go代理配置-hzj
+  nix.envVars = {
+    GOPROXY = "https://goproxy.cn,direct";
+  };
   # 引导加载器配置
   boot.loader.systemd-boot.enable = true;  # 启用 systemd-boot 引导加载器
   boot.loader.efi.canTouchEfiVariables = true;  # 允许修改 EFI 变量
