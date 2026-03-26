@@ -224,7 +224,7 @@
     # 用户级别的包安装（这里为空）
     packages = with pkgs; [ ];
     # 默认 shell 为 zsh
-    shell = pkgs.zsh;
+    # shell = pkgs.zsh;
   };
 
   # 程序配置
