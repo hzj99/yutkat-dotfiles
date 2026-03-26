@@ -37,7 +37,7 @@
   networking.networkmanager.enable = true;  # 启用 NetworkManager 服务
 
   # 设置时区
-  time.timeZone = "Asia/Tokyo";  # 设置为东京时区
+  time.timeZone = "Asia/Shanghai";  # 设置为上海时区
 
   # 国际化设置
   i18n.defaultLocale = "zh_CN.UTF-8";  # 默认区域设置为中文（中国）UTF-8
