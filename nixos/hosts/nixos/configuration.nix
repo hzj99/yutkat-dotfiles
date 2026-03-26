@@ -167,9 +167,6 @@
       settings.PermitRootLogin = "yes";  # 允许 root 登录（注意：生产环境建议设置为 no）
     };
 
-    # 禁用不需要的服务
-    bluetooth.enable = false;  # 禁用蓝牙
-    printing.enable = false;  # 禁用打印服务
 
     # 启用其他服务
     locate.enable = true;  # 启用 locate 服务（用于快速查找文件）
