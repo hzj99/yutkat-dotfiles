@@ -21,7 +21,7 @@
   boot.loader.grub.useOSProber = true;  # 启用 OSProber 以检测其他操作系统
 
   # 网络配置
-  networking.hostName = "nixos"; # 定义主机名
+  networking.hostName = hostname; # 使用外部传入的 hostname 参数
   # 无线网络配置
   # networking.wireless.enable = true;  # 通过 wpa_supplicant 启用无线支持
 
@@ -34,6 +34,23 @@
 
   # 设置时区
   time.timeZone = "Asia/Tokyo";  # 设置为东京时区
+
+  # 国际化设置
+  i18n.defaultLocale = "zh_CN.UTF-8";  # 默认区域设置为中文（中国）UTF-8
+
+  # 额外的区域设置
+  # 这些设置影响系统各个方面的区域偏好
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "zh_CN.UTF-8";      # 地址格式
+    LC_IDENTIFICATION = "zh_CN.UTF-8"; # 识别信息
+    LC_MEASUREMENT = "zh_CN.UTF-8";   # 度量单位
+    LC_MONETARY = "zh_CN.UTF-8";      # 货币格式
+    LC_NAME = "zh_CN.UTF-8";          # 人名格式
+    LC_NUMERIC = "zh_CN.UTF-8";       # 数字格式
+    LC_PAPER = "zh_CN.UTF-8";         # 纸张大小
+    LC_TELEPHONE = "zh_CN.UTF-8";     # 电话号码格式
+    LC_TIME = "zh_CN.UTF-8";          # 时间格式
+  };
 
 
   # 启用 X11 窗口系统
@@ -49,12 +66,142 @@
     variant = "";  # 键盘变体（空表示默认）
   };
 
+  # 输入法配置
+  i18n.inputMethod = {
+    enable = true;  # 启用输入法
+    type = "fcitx5";  # 使用 fcitx5 输入法框架
+    fcitx5 = {
+      waylandFrontend = true;  # 启用 Wayland 前端
+      # 安装 fcitx5 附加组件
+      # with pkgs; 是 Nix 语法，用于在块内直接引用 pkgs 中的包
+      addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-nord ];
+    };
+  };
+
+  # 字体配置
+  fonts = {
+    # 安装的字体包
+    # with pkgs; 语法使我们可以直接引用包名而不需要前缀
+    packages = (with pkgs; [
+      noto-fonts              # Noto 基础字体
+      noto-fonts-cjk-sans     # Noto CJK 无衬线字体
+      noto-fonts-color-emoji  # 彩色 emoji 字体
+      fira-code               # 等宽编程字体
+      fira-code-symbols       # Fira Code 符号
+      dina-font               # Dina 字体
+      proggyfonts             # Proggy 字体
+      udev-gothic-nf          # UDEV Gothic 字体（带 nerd fonts）
+      font-awesome            # Font Awesome 图标字体
+      cantarell-fonts         # Cantarell 字体
+    ]);
+
+    # Fontconfig 配置
+    fontconfig = {
+      enable = true;  # 启用 fontconfig
+      # 默认字体设置
+      defaultFonts = {
+        monospace = [ "UDEV Gothic 35NFLG" ];  # 等宽字体
+        sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];  # 无衬线字体
+        serif = [ "Noto Serif JP" "DejaVu Serif" ];  # 衬线字体
+      };
+      # 子像素渲染设置
+      subpixel = { lcdfilter = "light"; };
+    };
+  };
+
+  # 输入法配置
+  i18n.inputMethod = {
+    enable = true;  # 启用输入法
+    type = "fcitx5";  # 使用 fcitx5 输入法框架
+    fcitx5 = {
+      waylandFrontend = true;  # 启用 Wayland 前端
+      # 安装 fcitx5 附加组件
+      # with pkgs; 是 Nix 语法，用于在块内直接引用 pkgs 中的包
+      addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-nord ];
+    };
+  };
+
+  # 字体配置
+  fonts = {
+    # 安装的字体包
+    # with pkgs; 语法使我们可以直接引用包名而不需要前缀
+    packages = (with pkgs; [
+      noto-fonts              # Noto 基础字体
+      noto-fonts-cjk-sans     # Noto CJK 无衬线字体
+      noto-fonts-color-emoji  # 彩色 emoji 字体
+      fira-code               # 等宽编程字体
+      fira-code-symbols       # Fira Code 符号
+      dina-font               # Dina 字体
+      proggyfonts             # Proggy 字体
+      udev-gothic-nf          # UDEV Gothic 字体（带 nerd fonts）
+      font-awesome            # Font Awesome 图标字体
+      cantarell-fonts         # Cantarell 字体
+    ]);
+
+    # Fontconfig 配置
+    fontconfig = {
+      enable = true;  # 启用 fontconfig
+      # 默认字体设置
+      defaultFonts = {
+        monospace = [ "UDEV Gothic 35NFLG" ];  # 等宽字体
+        sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];  # 无衬线字体
+        serif = [ "Noto Serif JP" "DejaVu Serif" ];  # 衬线字体
+      };
+      # 子像素渲染设置
+      subpixel = { lcdfilter = "light"; };
+    };
+  };
+
+  # 输入法配置
+  i18n.inputMethod = {
+    enable = true;  # 启用输入法
+    type = "fcitx5";  # 使用 fcitx5 输入法框架
+    fcitx5 = {
+      waylandFrontend = true;  # 启用 Wayland 前端
+      # 安装 fcitx5 附加组件
+      # with pkgs; 是 Nix 语法，用于在块内直接引用 pkgs 中的包
+      addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-nord ];
+    };
+  };
+
+  # 字体配置
+  fonts = {
+    # 安装的字体包
+    # with pkgs; 语法使我们可以直接引用包名而不需要前缀
+    packages = (with pkgs; [
+      noto-fonts              # Noto 基础字体
+      noto-fonts-cjk-sans     # Noto CJK 无衬线字体
+      noto-fonts-color-emoji  # 彩色 emoji 字体
+      fira-code               # 等宽编程字体
+      fira-code-symbols       # Fira Code 符号
+      dina-font               # Dina 字体
+      proggyfonts             # Proggy 字体
+      udev-gothic-nf          # UDEV Gothic 字体（带 nerd fonts）
+      font-awesome            # Font Awesome 图标字体
+      cantarell-fonts         # Cantarell 字体
+    ]);
+
+    # Fontconfig 配置
+    fontconfig = {
+      enable = true;  # 启用 fontconfig
+      # 默认字体设置
+      defaultFonts = {
+        monospace = [ "UDEV Gothic 35NFLG" ];  # 等宽字体
+        sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];  # 无衬线字体
+        serif = [ "Noto Serif JP" "DejaVu Serif" ];  # 衬线字体
+      };
+      # 子像素渲染设置
+      subpixel = { lcdfilter = "light"; };
+    };
+  };
+
   # 启用打印服务
   services.printing.enable = true;  # 启用 CUPS 打印服务
 
-  # 音频配置
+  # 音频和安全配置
   services.pulseaudio.enable = false;  # 禁用 PulseAudio（使用 PipeWire 替代）
   security.rtkit.enable = true;  # 启用实时权限管理
+  security.polkit.enable = true;  # 启用 Polkit 权限管理
   services.pipewire = {
     enable = true;  # 启用 PipeWire
     alsa.enable = true;  # 启用 ALSA 支持
